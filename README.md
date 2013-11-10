@@ -2,8 +2,10 @@
 Bash shell utilities for exporting CSV data from your SalesForce organization using the SalesForce Bulk Query API
 
 ### Commands
-* login <username> <password>
-* runQuery <object> <query> <output.csv>
+```bash
+login <username> <password>
+runQuery <object> <query> <output.csv>
+```
 
 ### Example
 ```bash
@@ -21,5 +23,5 @@ runQuery "Opportunity" "SELECT Name FROM Opportunity" "opportunities.csv"
 
 ## Copyright and license
 
-Copyright (c) 2013 Scott McLeod &lt;halcyonblue@gmail.com&gt;
-The [the Apache 2.0 license](LICENSE).
++ Copyright (c) 2013 Scott McLeod &lt;halcyonblue@gmail.com&gt;
++ The [the Apache 2.0 license](LICENSE).
