@@ -3,7 +3,7 @@ function login() {
   PASSWORD="$2"
   LOGIN_RESPONSE=`echo $LOGIN | curl -s -H "Content-Type: text/xml; charset=UTF-8" -H "SOAPAction: login" -d "<?xml version=\"1.0\" encoding=\"utf-8\" ?><env:Envelope xmlns:xsd=\"http://www.w3.org/2001/XMLSchema\" xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\" xmlns:env=\"http://schemas.xmlsoap.org/soap/envelope/\"><env:Body><n1:login xmlns:n1=\"urn:partner.soap.sforce.com\"> <n1:username>$USERNAME</n1:username> <n1:password>$PASSWORD</n1:password></n1:login></env:Body></env:Envelope>" https://login.salesforce.com/services/Soap/u/29.0`
   sessionId=`echo $LOGIN_RESPONSE | sed -n -e 's|.*<sessionId>\(.*\)</sessionId>.*|\1|p'`
-  instance=`echo $LOGIN_RESPONSE | sed -n -e 's|.*<serverUrl>https://\([A-z,0-9]*\).*|\1|p'`
+  instance=`echo $LOGIN_RESPONSE | sed -n -e 's|.*<serverUrl>https://\([a-z,A-Z,0-9]*\).*|\1|p'`
 }
 
 function createJob() {
